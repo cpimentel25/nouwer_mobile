@@ -1,8 +1,12 @@
-import Auth from './src/Pages/Auth';
-// import Home from './src/Pages/Home';
+import { Provider } from 'react-redux';
+import { store } from './src/app/store';
+import Nouwer from './src/index';
 
 export default function App() {
+
   return (
-    <Auth />
+    <Provider store={store}>
+      <Nouwer />
+    </Provider>
   );
 }
