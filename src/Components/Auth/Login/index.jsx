@@ -16,7 +16,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log('handleSubmit: ', form);
+      // console.log('handleSubmit: ', form);
       dispatch(userLogin(form));
     } catch (error) {
       console.error(error);
