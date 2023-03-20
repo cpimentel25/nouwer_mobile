@@ -26,10 +26,30 @@ export async function loginUser(user) {
     await AsyncStorage.setItem('@storage_id', id);
 
     return user;
-
   } catch (error) {
     await AsyncStorage.removeItem('@storage_token');
     await AsyncStorage.removeItem('@storage_id');
+    console.error(error);
+  }
+}
+
+export async function FetchRoster() {
+  const token = await AsyncStorage.getItem('@storage_token');
+
+  const payload = {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(),
+  };
+
+  try {
+    const response = await fetch(`${API}/api/roster`, payload);
+    const data = await response.json();
+    return data;
+  } catch (error) {
     console.error(error);
   }
 }
