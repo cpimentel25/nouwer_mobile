@@ -39,6 +39,7 @@ const SelectRoster = () => {
   // const currentRoster = useSelector((state) => state.counter?.currentRoster);
   // console.log('Select roster: ', selectRoster);
   // console.log('Current roster: ', currentRoster);
+  console.log('roster Data: ', rosterData.length);
 
   return (
     <SafeAreaView>

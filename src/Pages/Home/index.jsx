@@ -1,12 +1,13 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSelector } from 'react-redux';
-import { View, Text, SafeAreaView, Image } from 'react-native';
+import { View, Text, SafeAreaView, Image, Button } from 'react-native';
 import { Pressable } from 'react-native';
 import SelectRoster from '../../Components/Roster/Select';
 import DisplayTotal from '../../Components/Roster/Display';
 import EnterValue from '../../Components/Roster/EnterValue';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { useEffect } from 'react';
 
 import styles from './styles';
 
@@ -22,6 +23,14 @@ const Home = ({ logOut }) => {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    console.log('run use effect');
+    if (!userData.email) {
+      console.log('userData not existed: ', userData);
+      removeToken()
+    }
+  }, []);
 
   const avatar = 'https://robohash.org/nouwermobilapp.png';
   // const avatar = `'https://robohash.org/${userData?.firstName}${userData?.lastName}.png'`;
@@ -56,6 +65,13 @@ const Home = ({ logOut }) => {
         <DisplayTotal />
         <EnterValue />
       </SafeAreaView>
+      {/* <View>
+        <Button
+          title='request permissions'
+          onPress={() => sendMessage()}
+          // onPress={() => requestSmsPermission()}
+        />
+      </View> */}
     </View>
   );
 };
