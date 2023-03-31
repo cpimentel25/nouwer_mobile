@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
   },
   option: {
     backgroundColor: '#E4DCCF',
-    borderColor: 'red',
     borderRadius: 3,
   }
 });

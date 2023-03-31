@@ -1,5 +1,17 @@
 import { StyleSheet } from 'react-native';
 
+export const Colors = {
+  primary: '#222831',
+  secundary: '#393E46',
+  text: '#FFF1DC',
+  textUp: '#E5BA73',
+  button: '#E5BA73',
+  input: 'white',
+  option: 'white',
+  alert: '#F90716',
+  accept: '#9CFF2E',
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

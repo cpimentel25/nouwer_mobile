@@ -2,9 +2,14 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRoster } from "./features/counter/counterSlice";
-import { View } from "react-native";
 import Auth from "./Pages/Auth";
 import Home from "./Pages/Home";
+
+// import { library } from "@fortawesome/fontawesome-svg-core";
+// import { fab } from "@fortawesome/free-brands-svg-icons";
+// import { faArrowRight } from "@fortawesome/free-solid-svg-icons/faArrowRight";
+
+// library.add(fab, faArrowRight)
 
 function Nouwer() {
   const [tokenLive, setTokenLive] = useState(false);
