@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { FetchRoster, loginUser } from './callApi';
+import { FetchRoster, FetchTotal, lastValueRoster, loginUser } from './callApi';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const initialState = {
@@ -7,6 +7,8 @@ const initialState = {
   user: [],
   roster: [],
   currentRoster: [],
+  totalValues: null,
+  lastValue: null,
 };
 
 export const userLogin = createAsyncThunk('user/login', async (value) => {
@@ -15,7 +17,15 @@ export const userLogin = createAsyncThunk('user/login', async (value) => {
 
 export const fetchRoster = createAsyncThunk('roster/fetch', async (value) => {
   return await FetchRoster(value);
-})
+});
+
+export const fetchTotal = createAsyncThunk('roter/total', async (value) => {
+  return await FetchTotal(value);
+});
+
+export const fetchLastValue = createAsyncThunk('roster/lastValue', async (value) => {
+  return await lastValueRoster(value);
+});
 
 export const counterSlice = createSlice({
   name: 'nouwer',
@@ -41,6 +51,12 @@ export const counterSlice = createSlice({
       })
       .addCase(fetchRoster.fulfilled, (state, action) => {
         state.roster = action.payload;
+      })
+      .addCase(fetchTotal.fulfilled, (state, action) => {
+        state.totalValues = action.payload[0];
+      })
+      .addCase(fetchLastValue.fulfilled, (state, action) => {
+        state.lastValue = action.payload?.values[0];
       })
   }
 });

@@ -53,3 +53,45 @@ export async function FetchRoster() {
     console.error(error);
   }
 }
+
+export async function FetchTotal(id) {
+  const token = await AsyncStorage.getItem('@storage_token');
+
+  const payload = {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(),
+  };
+
+  try {
+    const response = await fetch(`${API}/api/roster/values/total/${id}`, payload);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function lastValueRoster(id) {
+  const token = await AsyncStorage.getItem('@storage_token');
+
+  const payload = {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(),
+  };
+
+  try {
+    const response = await fetch(`${API}/api/roster/lastvalue/${id}`, payload);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};

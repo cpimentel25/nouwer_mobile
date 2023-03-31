@@ -36,13 +36,9 @@ const SelectRoster = () => {
     }
   }, [selectRoster]);
 
-  // console.log('title:', titleRoster, 'roster:', idRoster, 'create by:', createByRoster);
-
-  const currentRoster = useSelector((state) => state.counter?.currentRoster);
-
-  // console.log('Roster data: ', rosterData);
-  console.log('Select roster: ', selectRoster);
-  console.log('Current roster: ', currentRoster);
+  // const currentRoster = useSelector((state) => state.counter?.currentRoster);
+  // console.log('Select roster: ', selectRoster);
+  // console.log('Current roster: ', currentRoster);
 
   return (
     <SafeAreaView>
@@ -54,7 +50,7 @@ const SelectRoster = () => {
           style={styles.option}
         >
           {rosterData?.map((data, index) => (
-            <Picker.Item label={data.title} value={data._id} key={data._id} />
+            <Picker.Item label={data?.title} value={data?._id} key={data._id} />
           ))}
         </Picker>
       </View>
