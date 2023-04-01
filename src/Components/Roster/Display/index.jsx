@@ -31,6 +31,8 @@ const DisplayTotal = () => {
     }
   }, [rosterId]);
 
+  // console.log('rosterId (display total): ', rosterId);
+
   return (
     <SafeAreaView>
       <View key={rosterId} style={styles.display}>
