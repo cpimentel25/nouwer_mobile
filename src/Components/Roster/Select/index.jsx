@@ -30,19 +30,20 @@ const SelectRoster = () => {
           createdBy: createByRoster,
           createdAt: createdAtRoster,
           guests: rosterGuets,
-          categories: [rosterCategorie],
+          categories: rosterCategorie,
         })
       );
     }
   }, [selectRoster]);
 
   // const currentRoster = useSelector((state) => state.counter?.currentRoster);
-  console.log('Select roster: ', selectRoster);
+  // console.log('Select roster: ', selectRoster);
   // console.log('Current roster: ', currentRoster);
-  console.log('roster Data: ', rosterData.length);
+  // console.log('roster Data: ', rosterData.length);
+  // console.log('roster Categorie: ', rosterCategorie);
 
   return (
-    <SafeAreaView>
+    <View>
       <View style={styles.selectRoster}>
         <Text style={styles.title}>Roster:</Text>
         <View style={styles.selectOption}>
@@ -61,7 +62,7 @@ const SelectRoster = () => {
           </Picker>
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
