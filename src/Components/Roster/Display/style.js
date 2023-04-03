@@ -1,25 +1,26 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "../../../Styles";
 
 const styles = StyleSheet.create({
   display: {
-    height: 100,
+    height: 130,
     width: 400,
-    padding: 10,
-    borderRadius: 3,
-    backgroundColor: '#1E212D',
-    alignContent: 'flex-end',
+    alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 30,
   },
-  totalValue: {
-    fontSize: 30,
+  infoText: {
     color: '#FAF3E0',
   },
+  totalValue: {
+    fontSize: 45,
+    color: Colors.textUp,
+  },
   lastValuePositive: {
-    color: '#16FF00',
+    color: Colors.accept,
   },
   lastValueNegative: {
-    color: '#FF1700',
+    color: Colors.alert,
   }
 });
 

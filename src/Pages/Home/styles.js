@@ -38,7 +38,19 @@ const styles = StyleSheet.create({
   icon: {
     color: Colors.button,
     marginRight: 20,
-  }
+  },
+  sectionButtonView: {
+    width: 400,
+    alignItems: 'center'
+  },
+  buttonView: {
+    width: 250,
+    height: 50,
+    borderRadius: 5,
+    backgroundColor: Colors.button,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
 export default styles;

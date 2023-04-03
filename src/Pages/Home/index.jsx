@@ -10,8 +10,11 @@ import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { useEffect } from 'react';
 
 import styles from './styles';
+import { useState } from 'react';
 
 const Home = ({ logOut }) => {
+  const [enterValue, setEnterValue] = useState(false);
+
   const userData = useSelector((state) => state.counter?.user);
 
   const removeToken = async () => {
@@ -28,14 +31,19 @@ const Home = ({ logOut }) => {
     console.log('run use effect');
     if (!userData.email) {
       console.log('userData not existed: ', userData);
-      removeToken()
+      removeToken();
     }
   }, []);
+
+  const viewNewValue = () => {
+    setEnterValue(!enterValue)
+  };
 
   const avatar = 'https://robohash.org/nouwermobilapp.png';
   // const avatar = `'https://robohash.org/${userData?.firstName}${userData?.lastName}.png'`;
 
-  console.log('user data: ', userData);
+  // console.log('user data: ', userData);
+  // console.log('enter Value View: ', enterValue);
 
   return (
     <View style={styles.body}>
@@ -60,10 +68,15 @@ const Home = ({ logOut }) => {
           </Pressable>
         </View>
       </View>
+      <SelectRoster />
       <SafeAreaView>
-        <SelectRoster />
         <DisplayTotal />
-        <EnterValue />
+        {!enterValue ? <View style={styles.sectionButtonView}>
+          <Pressable style={styles.buttonView} onPress={() => setEnterValue(!enterValue)}>
+            <Text>Enter new Value</Text>
+          </Pressable>
+        </View> : null}
+        {enterValue ? <EnterValue viewNewValue={viewNewValue}/> : null}
       </SafeAreaView>
       {/* <View>
         <Button

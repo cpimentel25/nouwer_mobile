@@ -36,6 +36,7 @@ const DisplayTotal = () => {
   return (
     <SafeAreaView>
       <View key={rosterId} style={styles.display}>
+        <Text style={styles.infoText}>TOTAL BALANCE</Text>
         <Text style={styles.totalValue}>{totalValues}</Text>
         <Text style={lastValue > 0 ? styles.lastValuePositive : styles.lastValueNegative}>{value}</Text>
       </View>
